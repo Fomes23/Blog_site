@@ -1,93 +1,36 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="uz">
+{% load static %} <!-- Static fayllarni ishlatish uchun -->
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Blog{% endblock %}</title> <!-- Sahifa title blok -->
 
-    <!-- Sahifa nomi -->
-    <title>{% block title %}IT-NEWS{% endblock %}</title>
-
-    <!-- CSS -->
-    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}"> <!-- Asosiy CSS -->
+<!--    {% block extra_css %}{% endblock %} &lt;!&ndash; Qo‘shimcha sahifa CSS block &ndash;&gt;-->
 </head>
-
 <body>
+<!--<header>-->
+<!--    <h1>IT-NEWS</h1> &lt;!&ndash; Sayt sarlavhasi &ndash;&gt;-->
+<!--    <nav>&lt;!&ndash; Navbar joyi &ndash;&gt;</nav>-->
+<!--</header>-->
+<div id="container"> <!-- Asosiy layout quti (content + sidebar) -->
 
-<!-- ===== HEADER ===== -->
-<header>
-    <div class="container">
+    <main id="content">
+        {% block content %}{% endblock %} <!-- Har sahifa uchun asosiy kontent -->
+    </main>
 
-        <h1 class="logo">
-            <a href="/">IT-NEWS</a>
-        </h1>
-
-        <!-- Navigatsiya -->
-        <nav>
-            <ul>
-                <li><a href="/">Bosh sahifa</a></li>
-                <li><a href="#">Yangiliklar</a></li>
-                <li><a href="#">Texnologiya</a></li>
-                <li><a href="#">Aloqa</a></li>
-            </ul>
-        </nav>
-
-    </div>
-</header>
-
-
-<!-- ===== MAIN CONTENT ===== -->
-<main class="container">
-
-    <!-- Asosiy kontent -->
-    <section id="content">
-        {% block content %}
-        {% endblock %}
-    </section>
-
-    <!-- Sidebar -->
     <aside id="sidebar">
-
-        <h2>IT-NEWS</h2>
-
-        <p>
-            Informatsion texnologiyalar, dasturlash va
-            zamonaviy texnologiyalar haqidagi yangiliklar.
-        </p>
-
-        <hr>
-
-        <h3>Kategoriyalar</h3>
-        <ul>
-            <li><a href="#">Dasturlash</a></li>
-            <li><a href="#">Sun'iy intellekt</a></li>
-            <li><a href="#">Startaplar</a></li>
-            <li><a href="#">Mobil texnologiya</a></li>
-        </ul>
-
-        <hr>
-
-        <h3>So‘nggi postlar</h3>
-        <ul>
-            <li><a href="#">Python yangiliklari</a></li>
-            <li><a href="#">AI rivoji</a></li>
-            <li><a href="#">Django framework</a></li>
-        </ul>
-
+        {% block sidebar %} <!-- Yon panel / sidebar -->
+        <h2> IT-NEWS </h2>
+        <p>Informatsion texnologiyalarga oid yangiliklar sayti</p>
+        {% endblock %}
     </aside>
 
-</main>
-
-
-<!-- ===== FOOTER ===== -->
-<footer>
-
-    <p>
-        © {% now "Y" %} IT-NEWS. Barcha huquqlar himoyalangan.
-    </p>
-
-</footer>
-
+</div>
+<!--<footer>-->
+<!--    <p>© 2026 IT-NEWS</p> &lt;!&ndash; Footer &ndash;&gt;-->
+<!--</footer>-->
+<!--<script src="{% static 'js/main.js' %}"></script> &lt;!&ndash; Asosiy JS fayl &ndash;&gt;-->
+<!--{% block extra_js %}{% endblock %} &lt;!&ndash; Qo‘shimcha sahifa JS block &ndash;&gt;-->
 </body>
 </html>

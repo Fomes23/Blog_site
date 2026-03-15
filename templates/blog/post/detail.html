@@ -1,83 +1,9 @@
 {% extends "blog/base.html" %}
-
-{% block title %}{{ post.title }}{% endblock %}
-
+{% block title %} {{ post.title }} {% endblock %}
 {% block content %}
-
-<article class="post">
-
-    <!-- POST TITLE -->
-    <h1 class="post-title">{{ post.title }}</h1>
-
-    <!-- POST META -->
-    <div class="post-meta">
-
-        <span class="post-date">
-            📅 {{ post.publish }}
-        </span>
-
-        <span class="post-author">
-            ✍️ {{ post.author }}
-        </span>
-
-    </div>
-
-
-    <!-- POST IMAGE -->
-    {% if post.image %}
-        <div class="post-image">
-            <img src="{{ post.image.url }}" alt="{{ post.title }}">
-        </div>
-    {% endif %}
-
-
-    <!-- POST BODY -->
-    <div class="post-body">
-
-        {{ post.body|linebreaks }}
-
-    </div>
-
-
-    <!-- TAGS -->
-    {% if post.tags.all %}
-    <div class="post-tags">
-
-        <strong>Tags:</strong>
-
-        {% for tag in post.tags.all %}
-            <a href="#">{{ tag.name }}</a>
-        {% endfor %}
-
-    </div>
-    {% endif %}
-
-
-    <!-- SHARE -->
-    <div class="post-share">
-
-        <h3>Ulashish</h3>
-
-        <a href="#">Telegram</a> |
-        <a href="#">Facebook</a> |
-        <a href="#">Twitter</a>
-
-    </div>
-
-
-    <!-- AUTHOR BOX -->
-    <div class="author-box">
-
-        <h3>Muallif haqida</h3>
-
-        <p>
-            {{ post.author }} IT va dasturlash
-            bo‘yicha maqolalar yozadi.
-        </p>
-
-    </div>
-
-
-</article>
-
+<h1>{{ post.title }}</h1>
+<p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+</p>
+{{ post.content|linebreaks }}
 {% endblock %}
