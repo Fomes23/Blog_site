@@ -1,10 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+
+<html lang="uz">
 <head>
+
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="IT yangiliklar, dasturlash va texnologiyalar haqida sayt">
+
+    <!-- Title -->
+    <title>{% block title %}IT-NEWS{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    <!-- Extra CSS -->
+    {% block extra_css %}{% endblock %}
+
 </head>
+
+
 <body>
+
+<!-- HEADER -->
+<header class="header">
+
+    <div class="container header-wrapper">
+
+        <div class="logo">
+            <a href="/">IT-NEWS</a>
+        </div>
+
+        <nav class="nav">
+            <ul>
+
+                <li><a href="/">Bosh sahifa</a></li>
+                <li><a href="#">Yangiliklar</a></li>
+                <li><a href="#">Texnologiya</a></li>
+                <li><a href="#">Dasturlash</a></li>
+                <li><a href="#">Aloqa</a></li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+<main class="container main-wrapper">
+
+    <!-- CONTENT -->
+    <section class="content">
+
+        {% block content %}
+        {% endblock %}
+
+    </section>
+
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="widget">
+
+            <h2>IT-NEWS</h2>
+
+            <p>
+                IT-NEWS – bu dasturlash, sun'iy intellekt,
+                startaplar va zamonaviy texnologiyalar haqidagi
+                yangiliklar platformasi.
+            </p>
+
+        </div>
+
+
+        <div class="widget">
+
+            <h3>Kategoriyalar</h3>
+
+            <ul>
+                <li><a href="#">Dasturlash</a></li>
+                <li><a href="#">Sun'iy intellekt</a></li>
+                <li><a href="#">Startaplar</a></li>
+                <li><a href="#">Mobil texnologiya</a></li>
+            </ul>
+
+        </div>
+
+
+        <div class="widget">
+
+            <h3>So‘nggi postlar</h3>
+
+            <ul>
+
+                <li><a href="#">Python yangiliklari</a></li>
+                <li><a href="#">AI rivoji</a></li>
+                <li><a href="#">Django framework</a></li>
+
+            </ul>
+
+        </div>
+
+    </aside>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="container">
+
+        <p>
+            © {% now "Y" %} IT-NEWS.
+            Barcha huquqlar himoyalangan.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- JS -->
+<script src="{% static 'js/main.js' %}"></script>
+
+{% block extra_js %}{% endblock %}
 
 </body>
 </html>

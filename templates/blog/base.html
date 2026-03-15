@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sahifa nomi -->
+    <title>{% block title %}IT-NEWS{% endblock %}</title>
+
+    <!-- CSS -->
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="container">
+
+        <h1 class="logo">
+            <a href="/">IT-NEWS</a>
+        </h1>
+
+        <!-- Navigatsiya -->
+        <nav>
+            <ul>
+                <li><a href="/">Bosh sahifa</a></li>
+                <li><a href="#">Yangiliklar</a></li>
+                <li><a href="#">Texnologiya</a></li>
+                <li><a href="#">Aloqa</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container">
+
+    <!-- Asosiy kontent -->
+    <section id="content">
+        {% block content %}
+        {% endblock %}
+    </section>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+
+        <h2>IT-NEWS</h2>
+
+        <p>
+            Informatsion texnologiyalar, dasturlash va
+            zamonaviy texnologiyalar haqidagi yangiliklar.
+        </p>
+
+        <hr>
+
+        <h3>Kategoriyalar</h3>
+        <ul>
+            <li><a href="#">Dasturlash</a></li>
+            <li><a href="#">Sun'iy intellekt</a></li>
+            <li><a href="#">Startaplar</a></li>
+            <li><a href="#">Mobil texnologiya</a></li>
+        </ul>
+
+        <hr>
+
+        <h3>So‘nggi postlar</h3>
+        <ul>
+            <li><a href="#">Python yangiliklari</a></li>
+            <li><a href="#">AI rivoji</a></li>
+            <li><a href="#">Django framework</a></li>
+        </ul>
+
+    </aside>
+
+</main>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+
+    <p>
+        © {% now "Y" %} IT-NEWS. Barcha huquqlar himoyalangan.
+    </p>
+
+</footer>
+
+</body>
+</html>
